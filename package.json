@@ -1,0 +1,43 @@
+{
+  "name": "@psysecgroup/threaded-sqlite-read",
+  "description": "Extreme speed SQLite bulk reads spread across multiple databases and threads.",
+  "version": "1.0.0",
+  "author": "The PsySec Group",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PsySecGroup/threaded-sqlite-read/issues"
+  },
+  "homepage": "https://github.com/PsySecGroup/threaded-sqlite-read#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PsySecGroup/threaded-sqlite-read.git"
+  },
+  "scripts": {
+    "dev": "npx tsx watch src/index.ts",
+    "lint": "npx tsc --noEmit && npx eslint src/index.ts",
+    "test": "npx uvu -r esbuild-register tests/",
+    "build": "npx esbuild src/index.ts --bundle --external:better-sqlite3 --platform=node --minify --outfile=dist/index.js",
+    "compile": "npm run lint && npm run test && npm run build"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./src/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.14.1",
+    "esbuild": "^0.21.4",
+    "esbuild-register": "^3.5.0",
+    "eslint": "9.x",
+    "globals": "^15.3.0",
+    "tsx": "^4.11.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.12.0",
+    "uvu": "^0.5.6"
+  },
+  "dependencies": {
+    "better-sqlite3": "^8.0.0",
+    "fs-extra": "^10.1.0"
+  }
+}
