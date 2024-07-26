@@ -2,6 +2,20 @@
 
 Extreme speed SQLite bulk reads spread across multiple databases and threads.
 
+## Benchmark
+
+**System**:
+* Ubuntu 20.04 LTS
+* AMD Ryzen 7 5700U
+* 16 cores
+
+**Target**:
+* 250 SQLite databases over LAN
+* Each database is unindexed and between 200MB and 2GB
+
+**Results**:
+* For single `LIKE %...%` search on a comma-separated field, _650 seconds_
+
 ## Examples
 
 For a simple case:
